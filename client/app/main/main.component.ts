@@ -7,22 +7,41 @@ export class MainController {
   socket;
   accounts = [];
   newAccount = '';
+  isLoggedIn: Function;
+  isAdmin: Function;
+  getCurrentUser: Function;
+  isCollapsed = true;
 
   /*@ngInject*/
-  constructor($http, $scope, socket) {
+  constructor($http, $scope, socket, Auth) {
+
     this.$http = $http;
     this.socket = socket;
+    this.isLoggedIn = Auth.isLoggedInSync;
+    this.isAdmin = Auth.isAdminSync;
+    this.getCurrentUser = Auth.getCurrentUserSync;
 
+    // isLoggedIn: Function;
+    // isAdmin: Function;
+    // getCurrentUser: Function;
+    //isCollapsed = true;
+
+    // constructor(Auth) {
+    //   'ngInject';
+    //   this.isLoggedIn = Auth.isLoggedInSync;
+    //   this.isAdmin = Auth.isAdminSync;
+    //   this.getCurrentUser = Auth.getCurrentUserSync;
+    // }
     $scope.$on('$destroy', function() {
       socket.unsyncUpdates('account');
     });
   }
 
   $onInit() {
-    this.$http.get('/api/accounts').then(response => {
-      this.accounts = response.data;
-      this.socket.syncUpdates('account', this.accounts);
-    });
+    // this.$http.get('/api/accounts').then(response => {
+    //   this.accounts = response.data;
+    //   this.socket.syncUpdates('account', this.accounts);
+    // });
   }
 
   addAccount() {

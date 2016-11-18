@@ -4,18 +4,18 @@
  */
 
 'use strict';
-import Account from '../api/account/account.model';
+//import Account from '../api/account/account.model';
 import User from '../api/user/user.model';
 
-Account.find({}).remove()
+/*Account.find({}).remove()
   .then(() => {
     Account.create({
       name: 'Current Account1',
       sum: 2000
     }, {
-      name: 'Current Account23',
+      name: 'Current Account2',
       sum: 500
-    }/*, {
+    }, {
       name: 'Smart Build System',
       info: 'Build system ignores `spec` files, allowing you to keep '
             + 'tests alongside code. Automatic injection of scripts and '
@@ -33,8 +33,8 @@ Account.find({}).remove()
       name: 'Deployment Ready',
       info: 'Easily deploy your app to Heroku or Openshift with the heroku '
             + 'and openshift subgenerators'
-    }*/);
-  });
+    });
+  });*/
 
 User.find({}).remove()
   .then(() => {
@@ -42,7 +42,8 @@ User.find({}).remove()
       provider: 'local',
       name: 'Test User',
       email: 'test@example.com',
-      password: 'test'
+      password: 'test',
+      accounts: [{ name: 'checking', sum: 500}, { name: 'saving', sum: 5000}]
     }, {
       provider: 'local',
       role: 'admin',

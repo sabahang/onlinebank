@@ -8,4 +8,5 @@ var AccountSchema = new mongoose.Schema({
   active: Boolean
 });
 
-export default mongoose.model('Account', AccountSchema);
+//export default mongoose.model('Account', AccountSchema);
+export default AccountSchema;

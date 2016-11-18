@@ -7,10 +7,13 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header">Features:</h1>
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="account in $ctrl.accounts">
-        <li><a href="#" uib-tooltip="{{account.sum}}">{{account.name}}<button type="button" class="close" ng-click="$ctrl.deleteAccount(account)">&times;</button></a></li>
+      <h1 class="page-header">Account overview:</h1>
+      <!-- <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="account in $ctrl.getCurrentUser().accounts"> -->
+      <ul class="col-md-12 col-lg-12 col-sm-12 nav-tabs nav-stacked" ng-repeat="account in $ctrl.getCurrentUser().accounts">
+        <!-- <li><a href="#" uib-tooltip="{{account.sum}}">{{account.name}}<button type="button" class="close" ng-click="$ctrl.deleteAccount(account)">&times;</button></a></li> -->
+        <li><a href="#">{{account.name}}</a><span class="pull-right">{{account.sum}} Euroes</span></li>
       </ul>
+      <!-- <li ng-show="$ctrl.isLoggedIn()"><p class="navbar-text">Hello {{ $ctrl.getCurrentUser().accounts[0].sum }}</p> </li> -->
     </div>
   </div>
 

@@ -3,6 +3,13 @@
 import crypto from 'crypto';
 mongoose.Promise = require('bluebird');
 import mongoose, {Schema} from 'mongoose';
+//import AccountSchema from '../account/account.model';
+
+var AccountSchema = new mongoose.Schema({
+  name: String,
+  sum: Number,
+  active: Boolean
+});
 
 var UserSchema = new Schema({
   name: String,
@@ -19,6 +26,7 @@ var UserSchema = new Schema({
     type: String,
     required: true
   },
+  accounts: [AccountSchema],
   provider: String,
   salt: String
 });
